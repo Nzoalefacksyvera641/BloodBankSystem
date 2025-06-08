@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blood Bank - Health Statistics</title>
+    <link rel="stylesheet" href="healthstats.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="healthstats-container">
+        <div class="healthstats-header animate-slide-down">
+            <h1><i class="fas fa-heartbeat"></i> Blood Bank Health Dashboard</h1>
+            <p>Real-time monitoring of blood inventory and donor health metrics</p>
+        </div>
+
+        <div class="stats-grid animate-fade-in">
+            <!-- Blood Inventory Summary -->
+            <div class="stat-card blood-inventory animate-card-pop">
+                <div class="stat-card-header">
+                    <h2><i class="fas fa-tint"></i> Blood Inventory</h2>
+                    <div class="last-updated">Updated: <span id="inventory-update-time">Just now</span></div>
+                </div>
+                <div class="blood-type-stats">
+                    <div class="blood-type" data-type="A+">
+                        <div class="blood-label">A+</div>
+                        <div class="blood-bar-container">
+                            <div class="blood-bar"></div>
+                        </div>
+                        <div class="blood-quantity">0 units</div>
+                    </div>
+                    <div class="blood-type" data-type="A-">
+                        <div class="blood-label">A-</div>
+                        <div class="blood-bar-container">
+                            <div class="blood-bar"></div>
+                        </div>
+                        <div class="blood-quantity">0 units</div>
+                    </div>
+                    <div class="blood-type" data-type="B+">
+                        <div class="blood-label">B+</div>
+                        <div class="blood-bar-container">
+                            <div class="blood-bar"></div>
+                        </div>
+                        <div class="blood-quantity">0 units</div>
+                    </div>
+                    <div class="blood-type" data-type="B-">
+                        <div class="blood-label">B-</div>
+                        <div class="blood-bar-container">
+                            <div class="blood-bar"></div>
+                        </div>
+                        <div class="blood-quantity">0 units</div>
+                    </div>
+                    <div class="blood-type" data-type="AB+">
+                        <div class="blood-label">AB+</div>
+                        <div class="blood-bar-container">
+                            <div class="blood-bar"></div>
+                        </div>
+                        <div class="blood-quantity">0 units</div>
+                    </div>
+                    <div class="blood-type" data-type="AB-">
+                        <div class="blood-label">AB-</div>
+                        <div class="blood-bar-container">
+                            <div class="blood-bar"></div>
+                        </div>
+                        <div class="blood-quantity">0 units</div>
+                    </div>
+                    <div class="blood-type" data-type="O+">
+                        <div class="blood-label">O+</div>
+                        <div class="blood-bar-container">
+                            <div class="blood-bar"></div>
+                        </div>
+                        <div class="blood-quantity">0 units</div>
+                    </div>
+                    <div class="blood-type" data-type="O-">
+                        <div class="blood-label">O-</div>
+                        <div class="blood-bar-container">
+                            <div class="blood-bar"></div>
+                        </div>
+                        <div class="blood-quantity">0 units</div>
+                    </div>
+                </div>
+                <div class="inventory-summary">
+                    <div class="summary-item critical">
+                        <i class="fas fa-exclamation-triangle"></i>
+                        <span id="critical-blood">0</span> types critical
+                    </div>
+                    <div class="summary-item low">
+                        <i class="fas fa-info-circle"></i>
+                        <span id="low-blood">0</span> types low
+                    </div>
+                    <div class="summary-item sufficient">
+                        <i class="fas fa-check-circle"></i>
+                        <span id="sufficient-blood">0</span> types sufficient
+                    </div>
+                </div>
+            </div>
+
+            <!-- Donation Statistics -->
+            <div class="stat-card donation-stats animate-card-pop">
+                <div class="stat-card-header">
+                    <h2><i class="fas fa-hand-holding-heart"></i> Donation Activity</h2>
+                    <div class="time-filter">
+                        <select id="donation-time-filter">
+                            <option value="7">Last 7 Days</option>
+                            <option value="30" selected>Last 30 Days</option>
+                            <option value="90">Last 90 Days</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="chart-container">
+                    <canvas id="donationChart"></canvas>
+                </div>
+                <div class="donation-summary">
+                    <div class="summary-item">
+                        <i class="fas fa-users"></i>
+                        <span id="total-donors">0</span> donors
+                    </div>
+                    <div class="summary-item">
+                        <i class="fas fa-tint"></i>
+                        <span id="total-donations">0</span> donations
+                    </div>
+                    <div class="summary-item">
+                        <i class="fas fa-chart-line"></i>
+                        <span id="donation-trend">0</span>% trend
+                    </div>
+                </div>
+            </div>
+
+            <!-- Donor Health Metrics -->
+            <div class="stat-card donor-health animate-card-pop">
+                <div class="stat-card-header">
+                    <h2><i class="fas fa-heartbeat"></i> Donor Health Metrics</h2>
+                    <div class="health-filter">
+                        <select id="health-metric-filter">
+                            <option value="hemoglobin">Hemoglobin</option>
+                            <option value="blood-pressure">Blood Pressure</option>
+                            <option value="pulse">Pulse Rate</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="chart-container">
+                    <canvas id="healthChart"></canvas>
+                </div>
+                <div class="health-summary">
+                    <div class="summary-item" id="health-metric-value">
+                        <i class="fas fa-info-circle"></i>
+                        <span id="metric-value">0</span> <span id="metric-unit">g/dL</span>
+                    </div>
+                    <div class="summary-item" id="health-metric-range">
+                        <i class="fas fa-ruler"></i>
+                        <span id="metric-range">0-0</span> normal range
+                    </div>
+                    <div class="summary-item" id="health-metric-status">
+                        <i class="fas fa-check-circle"></i>
+                        <span id="metric-status">Normal</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Urgent Needs -->
+            <div class="stat-card urgent-needs animate-card-pop">
+                <div class="stat-card-header">
+                    <h2><i class="fas fa-exclamation-triangle"></i> Urgent Needs</h2>
+                    <div class="urgency-filter">
+                        <select id="urgency-filter">
+                            <option value="all">All Urgencies</option>
+                            <option value="critical">Critical Only</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="needs-list" id="needs-list">
+                    <!-- Will be populated by JavaScript -->
+                    <div class="no-needs">No urgent needs at this time</div>
+                </div>
+                <button class="btn refresh-btn" id="refresh-needs-btn">
+                    <i class="fas fa-sync-alt"></i> Refresh
+                </button>
+            </div>
+        </div>
+
+        <div class="healthstats-footer animate-fade-in">
+            <p>Blood Bank Management System | <span id="current-year"></span></p>
+            <p>Data updates every <strong>5 minutes</strong> | Last full refresh: <span id="last-refresh-time"></span></p>
+        </div>
+    </div>
+
+    <script src="healthstats.js"></script>
+</body>
+</html>

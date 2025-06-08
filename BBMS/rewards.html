@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blood Bank - Donor Rewards</title>
+    <link rel="stylesheet" href="rewards.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="rewards-container">
+        <!-- Header Section -->
+        <div class="rewards-header animate-slide-down">
+            <div class="header-content">
+                <h1><i class="fas fa-award"></i> Donor Rewards Program</h1>
+                <p>Thank you for saving lives! Earn points and redeem exciting rewards.</p>
+            </div>
+            <div class="header-hero animate-pulse">
+                <div class="blood-drop"><i class="fas fa-tint"></i></div>
+                <div class="blood-drop"><i class="fas fa-tint"></i></div>
+                <div class="blood-drop"><i class="fas fa-tint"></i></div>
+            </div>
+        </div>
+
+        <!-- Donor Profile Card -->
+        <div class="donor-profile animate-card-pop">
+            <div class="profile-header">
+                <div class="avatar">
+                    <i class="fas fa-user-circle"></i>
+                </div>
+                <div class="profile-info">
+                    <h2>Welcome, <span id="donor-name">Sarah Johnson</span>!</h2>
+                    <p>Loyal donor since <span id="member-since">Jan 2020</span></p>
+                </div>
+            </div>
+            <div class="profile-stats">
+                <div class="stat-item">
+                    <div class="stat-value" id="total-donations">12</div>
+                    <div class="stat-label">Total Donations</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value" id="lives-saved">36</div>
+                    <div class="stat-label">Lives Saved</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value" id="reward-points">1,850</div>
+                    <div class="stat-label">Reward Points</div>
+                </div>
+            </div>
+            <div class="progress-container">
+                <div class="progress-label">
+                    <span>Next milestone: <strong id="next-milestone">15 donations</strong></span>
+                    <span><span id="points-to-next">150</span> pts</span>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progress-fill" style="width: 80%"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Rewards Tiers -->
+        <div class="rewards-section animate-fade-in">
+            <h2><i class="fas fa-medal"></i> Your Donor Tier</h2>
+            <div class="tiers-container">
+                <div class="tier bronze">
+                    <div class="tier-icon">
+                        <i class="fas fa-medal"></i>
+                    </div>
+                    <h3>Bronze</h3>
+                    <p>1-4 donations</p>
+                    <div class="tier-status">Achieved</div>
+                </div>
+                <div class="tier silver">
+                    <div class="tier-icon">
+                        <i class="fas fa-medal"></i>
+                    </div>
+                    <h3>Silver</h3>
+                    <p>5-9 donations</p>
+                    <div class="tier-status">Achieved</div>
+                </div>
+                <div class="tier gold active">
+                    <div class="tier-icon">
+                        <i class="fas fa-medal"></i>
+                    </div>
+                    <h3>Gold</h3>
+                    <p>10-19 donations</p>
+                    <div class="tier-status">Current Tier</div>
+                </div>
+                <div class="tier platinum">
+                    <div class="tier-icon">
+                        <i class="fas fa-medal"></i>
+                    </div>
+                    <h3>Platinum</h3>
+                    <p>20+ donations</p>
+                    <div class="tier-status">150 pts to go</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Available Rewards -->
+        <div class="rewards-section animate-fade-in-delay">
+            <h2><i class="fas fa-gift"></i> Available Rewards</h2>
+            <div class="rewards-filter">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="merch">Merchandise</button>
+                <button class="filter-btn" data-filter="vouchers">Vouchers</button>
+                <button class="filter-btn" data-filter="experiences">Experiences</button>
+            </div>
+            <div class="rewards-grid">
+                <!-- Rewards will be populated by JavaScript -->
+            </div>
+        </div>
+
+        <!-- Recent Activity -->
+        <div class="rewards-section animate-fade-in">
+            <h2><i class="fas fa-history"></i> Recent Activity</h2>
+            <div class="activity-timeline">
+                <!-- Activity items will be populated by JavaScript -->
+                <div class="empty-activity">No recent activity yet</div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="rewards-footer animate-fade-in">
+            <p>Have questions about our rewards program?</p>
+            <button class="btn contact-btn"><i class="fas fa-envelope"></i> Contact Us</button>
+        </div>
+    </div>
+
+    <!-- Reward Redemption Modal -->
+    <div class="modal-overlay" id="redeem-modal">
+        <div class="modal-content animate-modal-pop">
+            <button class="modal-close"><i class="fas fa-times"></i></button>
+            <div class="modal-header">
+                <h2 id="modal-reward-title">Reward Title</h2>
+                <div class="modal-points" id="modal-reward-points">0 pts</div>
+            </div>
+            <div class="modal-body">
+                <div class="reward-image" id="modal-reward-image">
+                    <i class="fas fa-gift"></i>
+                </div>
+                <p id="modal-reward-description">Reward description goes here</p>
+                <div class="reward-details">
+                    <p><strong>Availability:</strong> <span id="modal-reward-availability">Limited</span></p>
+                    <p><strong>Expires:</strong> <span id="modal-reward-expiry">Dec 31, 2023</span></p>
+                </div>
+                <div class="redeem-form">
+                    <label for="redeem-email">Email for confirmation:</label>
+                    <input type="email" id="redeem-email" placeholder="your@email.com">
+                    <button class="btn redeem-btn" id="confirm-redeem">Redeem Now</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="rewards.js"></script>
+</body>
+</html>

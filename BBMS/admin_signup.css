@@ -1,0 +1,284 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: #f5f5f5;
+    overflow-x: hidden;
+}
+
+.container {
+    display: flex;
+    min-height: 100vh;
+}
+
+.left-panel {
+    flex: 1;
+    background: linear-gradient(135deg, #8e0e00, #1f1c18);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.animation-container {
+    text-align: center;
+    z-index: 2;
+    max-width: 500px;
+}
+
+.animation-container h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    animation: fadeInDown 1s ease;
+}
+
+.animation-container p {
+    font-size: 1.1rem;
+    opacity: 0.9;
+    animation: fadeIn 1.5s ease;
+}
+
+.hospital-icon {
+    font-size: 5rem;
+    margin-bottom: 2rem;
+    color: rgba(255, 255, 255, 0.9);
+    animation: pulse 2s infinite;
+}
+
+.blood-drop {
+    position: absolute;
+    width: 30px;
+    height: 40px;
+    background-color: #ff0033;
+    border-radius: 50% 50% 50% 50%/60% 60% 40% 40%;
+    filter: drop-shadow(0 0 10px rgba(255, 0, 51, 0.7));
+    opacity: 0.8;
+    z-index: 1;
+}
+
+#drop1 {
+    top: 20%;
+    left: 15%;
+    animation: float 6s ease-in-out infinite;
+}
+
+#drop2 {
+    top: 60%;
+    left: 25%;
+    animation: float 7s ease-in-out infinite 1s;
+}
+
+#drop3 {
+    top: 40%;
+    left: 75%;
+    animation: float 5s ease-in-out infinite 0.5s;
+}
+
+.pulse-circle {
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    background-color: rgba(255, 0, 51, 0.1);
+    border-radius: 50%;
+    animation: pulseCircle 4s infinite;
+    z-index: 0;
+}
+
+.right-panel {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+}
+
+.form-container {
+    background-color: white;
+    padding: 2.5rem;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 450px;
+    animation: fadeInUp 0.8s ease;
+}
+
+.form-container h2 {
+    margin-bottom: 1.5rem;
+    color: #333;
+    text-align: center;
+    font-size: 1.8rem;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+    position: relative;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #555;
+    font-weight: 500;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 0.8rem 1rem 0.8rem 2.5rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.form-group input:focus {
+    border-color: #8e0e00;
+    box-shadow: 0 0 0 2px rgba(142, 14, 0, 0.2);
+    outline: none;
+}
+
+.form-group i {
+    position: absolute;
+    left: 1rem;
+    top: 2.5rem;
+    color: #8e0e00;
+}
+
+.toggle-password {
+    position: absolute;
+    right: 1rem;
+    top: 2.5rem;
+    color: #777;
+    cursor: pointer;
+}
+
+.checkbox-group {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.checkbox-group input {
+    width: auto;
+    margin-right: 0.5rem;
+}
+
+.checkbox-group label {
+    margin-bottom: 0;
+    font-weight: 400;
+}
+
+.checkbox-group a {
+    color: #8e0e00;
+    text-decoration: none;
+}
+
+.checkbox-group a:hover {
+    text-decoration: underline;
+}
+
+.btn-signup {
+    width: 100%;
+    padding: 0.8rem;
+    background: linear-gradient(to right, #8e0e00, #1f1c18);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-signup:hover {
+    background: linear-gradient(to right, #a01000, #2a2621);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+.login-link {
+    text-align: center;
+    margin-top: 1.5rem;
+    color: #555;
+}
+
+.login-link a {
+    color: #8e0e00;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.login-link a:hover {
+    text-decoration: underline;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+@keyframes pulseCircle {
+    0% { transform: scale(0.8); opacity: 0.7; }
+    70% { transform: scale(1.1); opacity: 0.1; }
+    100% { transform: scale(0.8); opacity: 0.7; }
+}
+
+@keyframes float {
+    0% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-20px) rotate(5deg); }
+    100% { transform: translateY(0) rotate(0deg); }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+    
+    .left-panel {
+        padding: 2rem 1rem;
+    }
+    
+    .animation-container h1 {
+        font-size: 2rem;
+    }
+    
+    .form-container {
+        padding: 1.5rem;
+    }
+}

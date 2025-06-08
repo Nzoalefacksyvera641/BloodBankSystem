@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blood Bank | User Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <link rel="stylesheet" href="user.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">
+                    <i class="fas fa-tint blood-icon"></i>
+                    <span>BB<span class="highlight">MS</span></span>
+                </div>
+                <button class="menu-toggle" id="menuToggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+            
+            <nav class="sidebar-nav">
+                <ul>
+                    <li class="active">
+                        <a href="#">
+                            <i class="fas fa-home"></i>
+                            <span>Dashboard</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fas fa-history"></i>
+                            <span>Donation History</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="appointment.html">
+                            <i class="fas fa-calendar-alt"></i>
+                            <span>Appointments</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="healthstats.html">
+                            <i class="fas fa-heartbeat"></i>
+                            <span>Health Stats</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="rewards.html">
+                            <i class="fas fa-award"></i>
+                            <span>Rewards</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="settings.html">
+                            <i class="fas fa-cog"></i>
+                            <span>Settings</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            
+            <div class="sidebar-footer">
+                <div class="user-profile">
+                    <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="User">
+                    <div class="user-info">
+                        <span class="user-name">John Smith</span>
+                        <span class="user-role">Blood Donor</span>
+                    </div>
+                </div>
+                <a href="#" class="logout-btn">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Logout</span>
+                </a>
+            </div>
+        </aside>
+        
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="main-header">
+                <h1>Welcome Back, User!</h1>
+                <div class="header-actions">
+                    <div class="search-box">
+                        <input type="text" placeholder="Search...">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <div class="notifications">
+                        <i class="fas fa-bell"></i>
+                        <span class="notification-badge">2</span>
+                    </div>
+                </div>
+            </header>
+            
+            <div class="dashboard-content">
+                <!-- Hero Banner -->
+                <div class="hero-banner animate__animated animate__fadeIn">
+                    <div class="banner-content">
+                        <h2>Your Blood Saves Lives!</h2>
+                        <p>You're eligible to donate again in 12 days. Schedule your next appointment now.</p>
+                        <button class="btn-primary">Book Appointment</button>
+                    </div>
+                    <div class="banner-image">
+                        <img src="https://img.icons8.com/color/96/000000/drop-of-blood.png" alt="Blood Drop">
+                    </div>
+                </div>
+                
+                <!-- Quick Stats -->
+                <div class="quick-stats animate__animated animate__fadeInUp">
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-tint"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>Total Donations</h3>
+                            <span class="stat-value">8</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-medal"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>Donor Level</h3>
+                            <span class="stat-value">Gold</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>Lives Saved</h3>
+                            <span class="stat-value">24</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-calendar-check"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>Next Donation</h3>
+                            <span class="stat-value">Jun 25</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Upcoming Appointment -->
+                <div class="appointment-card animate__animated animate__fadeIn">
+                    <div class="card-header">
+                        <h3><i class="fas fa-calendar-day"></i> Upcoming Appointment</h3>
+                        <button class="btn-outline">View All</button>
+                    </div>
+                    <div class="appointment-details">
+                        <div class="appointment-info">
+                            <div class="info-item">
+                                <span class="info-label">Date:</span>
+                                <span class="info-value">June 25, 2023</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-label">Time:</span>
+                                <span class="info-value">10:30 AM</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-label">Location:</span>
+                                <span class="info-value">City Blood Center</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-label">Status:</span>
+                                <span class="info-value badge confirmed">Confirmed</span>
+                            </div>
+                        </div>
+                        <div class="appointment-actions">
+                            <button class="btn-icon" title="Reschedule">
+                                <i class="fas fa-calendar-alt"></i>
+                            </button>
+                            <button class="btn-icon" title="Cancel">
+                                <i class="fas fa-times"></i>
+                            </button>
+                            <button class="btn-icon" title="Get Directions">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </button>
+                            <button class="btn-primary">View Details</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Blood Donation Timeline -->
+                <div class="timeline-section animate__animated animate__fadeIn">
+                    <div class="section-header">
+                        <h3><i class="fas fa-history"></i> Donation History</h3>
+                        <button class="btn-outline">View Full History</button>
+                    </div>
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-date">May 15, 2023</div>
+                            <div class="timeline-content">
+                                <div class="timeline-icon">
+                                    <i class="fas fa-tint"></i>
+                                </div>
+                                <div class="timeline-details">
+                                    <h4>Whole Blood Donation</h4>
+                                    <p>City Blood Center - 450ml donated</p>
+                                    <span class="badge completed">Completed</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-date">Mar 28, 2023</div>
+                            <div class="timeline-content">
+                                <div class="timeline-icon">
+                                    <i class="fas fa-tint"></i>
+                                </div>
+                                <div class="timeline-details">
+                                    <h4>Plasma Donation</h4>
+                                    <p>Regional Hospital - Plasma collected</p>
+                                    <span class="badge completed">Completed</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-date">Jan 10, 2023</div>
+                            <div class="timeline-content">
+                                <div class="timeline-icon">
+                                    <i class="fas fa-tint"></i>
+                                </div>
+                                <div class="timeline-details">
+                                    <h4>Whole Blood Donation</h4>
+                                    <p>Community Blood Drive - 450ml donated</p>
+                                    <span class="badge completed">Completed</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Rewards Section -->
+                <div class="rewards-section animate__animated animate__fadeIn">
+                    <div class="section-header">
+                        <h3><i class="fas fa-award"></i> Your Rewards</h3>
+                        <button class="btn-outline">View All Rewards</button>
+                    </div>
+                    <div class="rewards-grid">
+                        <div class="reward-card">
+                            <div class="reward-badge gold">
+                                <i class="fas fa-medal"></i>
+                            </div>
+                            <h4>Gold Donor</h4>
+                            <p>Awarded for 5+ donations</p>
+                            <span class="reward-date">Earned: May 2023</span>
+                        </div>
+                        <div class="reward-card">
+                            <div class="reward-badge silver">
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <h4>Loyalty Star</h4>
+                            <p>Consistent annual donations</p>
+                            <span class="reward-date">Earned: Jan 2023</span>
+                        </div>
+                        <div class="reward-card">
+                            <div class="reward-badge bronze">
+                                <i class="fas fa-gem"></i>
+                            </div>
+                            <h4>Life Saver</h4>
+                            <p>Helped save 10+ lives</p>
+                            <span class="reward-date">Earned: Mar 2023</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer Section -->
+<footer class="main-footer">
+    <div class="footer-content">
+        <div class="footer-section">
+            <h4>About BBMS</h4>
+            <p>The Blood Bank Management System helps connect donors with those in need, ensuring a steady supply of life-saving blood.</p>
+        </div>
+        <div class="footer-section">
+            <h4></h4>
+            <ul>
+                <li><a href="user.html"> Home</a></li>
+                <li><a href="#">Eligibility Requirements</a></li>
+                <li><a href="#">Donation Process</a></li>
+                <li><a href="#"></a></li>
+            </ul>
+        </div>
+        <div class="footer-section">
+            <h4>Contact Us</h4>
+            <ul class="contact-info">
+                <li><i class="fas fa-phone"></i> 670 773 420</li>
+                <li><i class="fas fa-envelope"></i> bloodbank@gmail.com</li>
+                <li><i class="fas fa-map-marker-alt"></i> Buea, Cameroon</li>
+            </ul>
+        </div>
+        <div class="footer-section">
+            <h4>Follow Us</h4>
+            <div class="social-links">
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <div class="footer-bottom-content">
+            <p>&copy; 2023 Blood Bank Management System. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+                <a href="#">map</a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+    <script src="user.js"></script>
+</body>
+</html>

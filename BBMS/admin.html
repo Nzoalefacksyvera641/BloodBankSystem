@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Blood Bank Management | Admin Dashboard</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+        <link rel="stylesheet" href="admin.css">
+        
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">
+                    <i class="fas fa-tint blood-icon"></i>
+                    <span>BB<span class="highlight">MS</span></span>
+                </div>
+                <button class="menu-toggle" id="menuToggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+            
+            <nav class="sidebar-nav">
+                <ul>
+                    <li class="active">
+                        <a href="#">
+                            <i class="fas fa-tachometer-alt"></i>
+                            <span>Dashboard</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fas fa-users"></i>
+                            <span>Donors</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fas fa-hospital-user"></i>
+                            <span>Recipients</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fas fa-flask"></i>
+                            <span>Blood Inventory</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fas fa-calendar-check"></i>
+                            <span>Appointments</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fas fa-chart-line"></i>
+                            <span>Analytics</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fas fa-cog"></i>
+                            <span>Settings</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            
+            <div class="sidebar-footer">
+                <div class="user-profile">
+                    <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Admin">
+                    <div class="user-info">
+                        <span class="user-name">Admin User</span>
+                        <span class="user-role">Super Admin</span>
+                    </div>
+                </div>
+                <a href="#" class="logout-btn">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Logout</span>
+                </a>
+            </div>
+        </aside>
+        
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="main-header">
+                <h1>Dashboard Overview</h1>
+                <div class="header-actions">
+                    <div class="search-box">
+                        <input type="text" placeholder="Search...">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <div class="notifications">
+                        <i class="fas fa-bell"></i>
+                        <span class="notification-badge">3</span>
+                    </div>
+                </div>
+            </header>
+            
+            <div class="dashboard-content">
+                <!-- Stats Cards -->
+                <div class="stats-grid">
+                    <div class="stats-card blood-card">
+                        <div class="stats-icon">
+                            <i class="fas fa-tint"></i>
+                        </div>
+                        <div class="stats-info">
+                            <h3>Total Blood Units</h3>
+                            <span class="stats-value">1,248</span>
+                            <span class="stats-change positive">
+                                <i class="fas fa-arrow-up"></i> 12% this month
+                            </span>
+                        </div>
+                    </div>
+                    
+                    <div class="stats-card donors-card">
+                        <div class="stats-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div class="stats-info">
+                            <h3>Active Donors</h3>
+                            <span class="stats-value">856</span>
+                            <span class="stats-change positive">
+                                <i class="fas fa-arrow-up"></i> 5% this month
+                            </span>
+                        </div>
+                    </div>
+                    
+                    <div class="stats-card requests-card">
+                        <div class="stats-icon">
+                            <i class="fas fa-hospital"></i>
+                        </div>
+                        <div class="stats-info">
+                            <h3>Pending Requests</h3>
+                            <span class="stats-value">24</span>
+                            <span class="stats-change negative">
+                                <i class="fas fa-arrow-down"></i> 8% this month
+                            </span>
+                        </div>
+                    </div>
+                    
+                    <div class="stats-card appointments-card">
+                        <div class="stats-icon">
+                            <i class="fas fa-calendar-alt"></i>
+                        </div>
+                        <div class="stats-info">
+                            <h3>Today's Appointments</h3>
+                            <span class="stats-value">42</span>
+                            <span class="stats-change positive">
+                                <i class="fas fa-arrow-up"></i> 15% this week
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Charts Row -->
+                <div class="charts-row">
+                    <div class="chart-container">
+                        <div class="chart-header">
+                            <h3>Blood Donations (Last 6 Months)</h3>
+                            <select class="chart-filter">
+                                <option>All Blood Types</option>
+                                <option>A+</option>
+                                <option>B+</option>
+                                <option>AB+</option>
+                                <option>O+</option>
+                                <option>A-</option>
+                                <option>B-</option>
+                                <option>AB-</option>
+                                <option>O-</option>
+                            </select>
+                        </div>
+                        <div class="chart" id="donationsChart">
+                            <!-- Chart will be rendered by Chart.js -->
+                        </div>
+                    </div>
+                    
+                    <div class="chart-container">
+                        <div class="chart-header">
+                            <h3>Blood Type Distribution</h3>
+                        </div>
+                        <div class="chart" id="bloodTypeChart">
+                            <!-- Chart will be rendered by Chart.js -->
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Recent Activity and Inventory -->
+                <div class="content-row">
+                    <div class="recent-activity">
+                        <div class="section-header">
+                            <h3>Recent Activity</h3>
+                            <a href="#" class="view-all">View All</a>
+                        </div>
+                        <ul class="activity-list">
+                            <li>
+                                <div class="activity-icon">
+                                    <i class="fas fa-tint"></i>
+                                </div>
+                                <div class="activity-details">
+                                    <p>New blood donation from <strong>John Doe</strong> (A+)</p>
+                                    <span class="activity-time">10 minutes ago</span>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="activity-icon">
+                                    <i class="fas fa-hospital"></i>
+                                </div>
+                                <div class="activity-details">
+                                    <p>Blood request from <strong>City General Hospital</strong> (3 units B+)</p>
+                                    <span class="activity-time">25 minutes ago</span>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="activity-icon">
+                                    <i class="fas fa-user-plus"></i>
+                                </div>
+                                <div class="activity-details">
+                                    <p>New donor registered: <strong>Sarah Johnson</strong> (O-)</p>
+                                    <span class="activity-time">1 hour ago</span>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="activity-icon">
+                                    <i class="fas fa-calendar-check"></i>
+                                </div>
+                                <div class="activity-details">
+                                    <p>Appointment scheduled for <strong>Michael Brown</strong> on June 15</p>
+                                    <span class="activity-time">2 hours ago</span>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="activity-icon">
+                                    <i class="fas fa-exclamation-triangle"></i>
+                                </div>
+                                <div class="activity-details">
+                                    <p>Low stock alert for <strong>AB-</strong> blood type</p>
+                                    <span class="activity-time">4 hours ago</span>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="inventory-status">
+                        <div class="section-header">
+                            <h3>Inventory Status</h3>
+                            <a href="#" class="view-all">Manage Inventory</a>
+                        </div>
+                        <div class="inventory-grid">
+                            <div class="inventory-item critical">
+                                <span class="blood-type">AB-</span>
+                                <span class="blood-units">12 units</span>
+                                <div class="inventory-bar">
+                                    <div class="bar-fill" style="width: 15%;"></div>
+                                </div>
+                                <span class="inventory-status-text">Critical</span>
+                            </div>
+                            <div class="inventory-item low">
+                                <span class="blood-type">B-</span>
+                                <span class="blood-units">18 units</span>
+                                <div class="inventory-bar">
+                                    <div class="bar-fill" style="width: 25%;"></div>
+                                </div>
+                                <span class="inventory-status-text">Low</span>
+                            </div>
+                            <div class="inventory-item moderate">
+                                <span class="blood-type">A-</span>
+                                <span class="blood-units">32 units</span>
+                                <div class="inventory-bar">
+                                    <div class="bar-fill" style="width: 45%;"></div>
+                                </div>
+                                <span class="inventory-status-text">Moderate</span>
+                            </div>
+                            <div class="inventory-item good">
+                                <span class="blood-type">O-</span>
+                                <span class="blood-units">48 units</span>
+                                <div class="inventory-bar">
+                                    <div class="bar-fill" style="width: 65%;"></div>
+                                </div>
+                                <span class="inventory-status-text">Good</span>
+                            </div>
+                            <div class="inventory-item excellent">
+                                <span class="blood-type">AB+</span>
+                                <span class="blood-units">76 units</span>
+                                <div class="inventory-bar">
+                                    <div class="bar-fill" style="width: 85%;"></div>
+                                </div>
+                                <span class="inventory-status-text">Excellent</span>
+                            </div>
+                            <div class="inventory-item excellent">
+                                <span class="blood-type">A+</span>
+                                <span class="blood-units">112 units</span>
+                                <div class="inventory-bar">
+                                    <div class="bar-fill" style="width: 95%;"></div>
+                                </div>
+                                <span class="inventory-status-text">Excellent</span>
+                            </div>
+                            <div class="inventory-item good">
+                                <span class="blood-type">B+</span>
+                                <span class="blood-units">64 units</span>
+                                <div class="inventory-bar">
+                                    <div class="bar-fill" style="width: 75%;"></div>
+                                </div>
+                                <span class="inventory-status-text">Good</span>
+                            </div>
+                            <div class="inventory-item excellent">
+                                <span class="blood-type">O+</span>
+                                <span class="blood-units">136 units</span>
+                                <div class="inventory-bar">
+                                    <div class="bar-fill" style="width: 100%;"></div>
+                                </div>
+                                <span class="inventory-status-text">Excellent</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="admin.js"></script>
+</body>
+</html>

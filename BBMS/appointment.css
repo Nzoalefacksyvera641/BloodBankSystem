@@ -1,0 +1,314 @@
+/* Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f8f9fa;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Animations */
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-20px);
+    }
+    60% {
+        transform: translateY(-10px);
+    }
+}
+
+.animate-slide-down {
+    animation: slideDown 0.8s ease-out forwards;
+}
+
+.animate-fade-in {
+    animation: fadeIn 1s ease-out forwards;
+}
+
+.animate-fade-in-delay {
+    animation: fadeIn 1.5s ease-out forwards;
+}
+
+.animate-bounce {
+    animation: bounce 1s ease infinite;
+}
+
+/* Container Styles */
+.appointment-container {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.appointment-header {
+    text-align: center;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #eee;
+}
+
+.appointment-header h1 {
+    color: #d32f2f;
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.appointment-header p {
+    color: #666;
+}
+
+/* Steps Indicator */
+.appointment-steps {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+    position: relative;
+}
+
+.appointment-steps::before {
+    content: '';
+    position: absolute;
+    top: 20px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: #e0e0e0;
+    z-index: 1;
+}
+
+.step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+}
+
+.step span {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #e0e0e0;
+    color: #999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+.step p {
+    color: #999;
+    font-size: 0.9rem;
+}
+
+.step.active span {
+    background: #d32f2f;
+    color: white;
+    transform: scale(1.1);
+}
+
+.step.active p {
+    color: #d32f2f;
+    font-weight: 500;
+}
+
+/* Form Styles */
+.form-step {
+    display: none;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.form-step.active {
+    display: block;
+    opacity: 1;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: #555;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-family: 'Poppins', sans-serif;
+    transition: border 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: #d32f2f;
+    box-shadow: 0 0 0 2px rgba(211, 47, 47, 0.2);
+}
+
+.checkbox-group {
+    display: flex;
+    align-items: center;
+}
+
+.checkbox-group input {
+    width: auto;
+    margin-right: 0.5rem;
+}
+
+.checkbox-group label {
+    margin-bottom: 0;
+    font-weight: normal;
+}
+
+/* Button Styles */
+.btn {
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: 5px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn i {
+    margin-left: 0.5rem;
+}
+
+.next-btn {
+    background: #d32f2f;
+    color: white;
+    float: right;
+}
+
+.next-btn:hover {
+    background: #b71c1c;
+    transform: translateX(5px);
+}
+
+.prev-btn {
+    background: #f5f5f5;
+    color: #666;
+    float: left;
+}
+
+.prev-btn:hover {
+    background: #e0e0e0;
+    transform: translateX(-5px);
+}
+
+.finish-btn {
+    background: #4caf50;
+    color: white;
+    margin: 1rem auto;
+    display: block;
+}
+
+.finish-btn:hover {
+    background: #388e3c;
+    transform: scale(1.05);
+}
+
+.button-group {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2rem;
+}
+
+/* Confirmation Styles */
+.confirmation-container {
+    text-align: center;
+    padding: 2rem 0;
+}
+
+.confirmation-icon {
+    font-size: 5rem;
+    color: #4caf50;
+    margin-bottom: 1.5rem;
+}
+
+.confirmation-details {
+    background: #f9f9f9;
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin: 1.5rem 0;
+    text-align: left;
+}
+
+.confirmation-details p {
+    margin-bottom: 0.8rem;
+}
+
+.confirmation-message {
+    color: #666;
+    margin-bottom: 1.5rem;
+}
+
+/* Footer Styles */
+.appointment-footer {
+    text-align: center;
+    margin-top: 2rem;
+    padding-top: 1rem;
+    border-top: 1px solid #eee;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .appointment-container {
+        margin: 1rem;
+        padding: 1.5rem;
+    }
+
+    .appointment-header h1 {
+        font-size: 1.5rem;
+    }
+
+    .step p {
+        display: none;
+    }
+}

@@ -1,0 +1,377 @@
+/* Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f5f7fa;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Animations */
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes cardPop {
+    0% {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    80% {
+        transform: scale(1.05);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(211, 47, 47, 0.4);
+    }
+    70% {
+        box-shadow: 0 0 0 10px rgba(211, 47, 47, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(211, 47, 47, 0);
+    }
+}
+
+@keyframes bloodPulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.animate-slide-down {
+    animation: slideDown 0.8s ease-out forwards;
+}
+
+.animate-fade-in {
+    animation: fadeIn 1s ease-out forwards;
+}
+
+.animate-card-pop {
+    animation: cardPop 0.6s ease-out forwards;
+}
+
+/* Container Styles */
+.healthstats-container {
+    max-width: 1400px;
+    margin: 2rem auto;
+    padding: 2rem;
+}
+
+.healthstats-header {
+    text-align: center;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #eee;
+}
+
+.healthstats-header h1 {
+    color: #d32f2f;
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.healthstats-header p {
+    color: #666;
+}
+
+.healthstats-footer {
+    text-align: center;
+    margin-top: 2rem;
+    padding-top: 1rem;
+    border-top: 1px solid #eee;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+/* Grid Layout */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+}
+
+@media (max-width: 1200px) {
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Stat Card Styles */
+.stat-card {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    padding: 1.5rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.12);
+}
+
+.stat-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 1rem;
+}
+
+.stat-card-header h2 {
+    font-size: 1.3rem;
+    color: #444;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.last-updated {
+    font-size: 0.8rem;
+    color: #888;
+}
+
+/* Blood Inventory Styles */
+.blood-type-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.blood-type {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.blood-label {
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    color: #555;
+}
+
+.blood-bar-container {
+    width: 100%;
+    height: 10px;
+    background: #f0f0f0;
+    border-radius: 5px;
+    margin-bottom: 0.5rem;
+    overflow: hidden;
+}
+
+.blood-bar {
+    height: 100%;
+    width: 0;
+    background: #d32f2f;
+    border-radius: 5px;
+    transition: width 1s ease, background 0.3s ease;
+}
+
+.blood-quantity {
+    font-size: 0.8rem;
+    color: #666;
+}
+
+.inventory-summary {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid #eee;
+}
+
+.summary-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+    padding: 0.5rem;
+    border-radius: 5px;
+    background: #f8f9fa;
+}
+
+.summary-item.critical {
+    background: #ffebee;
+    color: #d32f2f;
+}
+
+.summary-item.low {
+    background: #fff8e1;
+    color: #ff8f00;
+}
+
+.summary-item.sufficient {
+    background: #e8f5e9;
+    color: #388e3c;
+}
+
+/* Chart Container Styles */
+.chart-container {
+    position: relative;
+    height: 200px;
+    margin-bottom: 1.5rem;
+}
+
+/* Donation Stats Styles */
+.donation-summary {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid #eee;
+}
+
+/* Urgent Needs Styles */
+.urgent-needs {
+    grid-column: span 2;
+}
+
+@media (max-width: 1200px) {
+    .urgent-needs {
+        grid-column: span 1;
+    }
+}
+
+.needs-list {
+    min-height: 200px;
+}
+
+.need-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    margin-bottom: 0.5rem;
+    border-radius: 5px;
+    background: #f8f9fa;
+    transition: all 0.3s ease;
+    animation: fadeIn 0.5s ease-out;
+}
+
+.need-item.critical {
+    background: #ffebee;
+    border-left: 4px solid #d32f2f;
+    animation: pulse 2s infinite;
+}
+
+.need-item:hover {
+    transform: translateX(5px);
+}
+
+.need-type {
+    font-weight: bold;
+}
+
+.need-quantity {
+    color: #d32f2f;
+    font-weight: bold;
+}
+
+.need-hospital {
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.need-date {
+    font-size: 0.8rem;
+    color: #888;
+}
+
+.no-needs {
+    text-align: center;
+    padding: 2rem;
+    color: #888;
+    font-style: italic;
+}
+
+/* Button Styles */
+.btn {
+    padding: 0.6rem 1.2rem;
+    border: none;
+    border-radius: 5px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: #d32f2f;
+    color: white;
+}
+
+.btn:hover {
+    background: #b71c1c;
+    transform: translateY(-2px);
+}
+
+.btn i {
+    margin-right: 0.5rem;
+}
+
+.refresh-btn {
+    margin-top: 1rem;
+    width: 100%;
+}
+
+/* Filter Styles */
+.time-filter select,
+.health-filter select,
+.urgency-filter select {
+    padding: 0.3rem 0.6rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.8rem;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .blood-type-stats {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .inventory-summary,
+    .donation-summary {
+        flex-direction: column;
+    }
+
+    .healthstats-container {
+        padding: 1rem;
+    }
+}
